@@ -1,0 +1,805 @@
+/* MAIN FOOTER CONTAINER */
+.footer-container {
+  width: 100%;
+  background: linear-gradient(to bottom, #0c1119 0%, #0b0f17 100%);
+  background: linear-gradient(to top, rgba(6, 171, 226, 0.329),  rgba(35, 141, 176, 0.408), rgba(3, 86, 113, 0.182));
+  border-top: 1px solid #5c6e8774;
+  padding: 60px 20px 30px;
+  margin-top: 60px;
+  color: #cbd5e1;
+}
+
+.FooterDesktop {
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+/* INNER CONTENT ALIGNMENT */
+.footer-inner {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+/* LEFT SECTION */
+.footer-left {
+  max-width: 50%;
+}
+
+/* Logo + title row */
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-tile-row {
+  gap: 4px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/* Logo */
+.footer-logo {
+  width: 90px;
+  height: auto;
+  opacity: 0.95;
+  filter: brightness(1.7) contrast(1.1) drop-shadow(0 0 6px rgb(63, 99, 172));
+  transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+/* Title */
+.footer-heading {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.footer-description {
+  color: #9ca3af;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+/* BADGES */
+.footer-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #111827;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #d1d5db;
+}
+
+/* RIGHT SECTION */
+.footer-right {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-column h3 {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.footer-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-column li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-column li:hover {
+  color: white;
+}
+
+/* DIVIDER */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: #2a6186e3;
+  margin: 40px 0 20px;
+}
+
+/* BOTTOM COPYRIGHT */
+.footer-bottom {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.back-to-top {
+  background: transparent;
+  border: none;
+  color: #60a5fa;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-right {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    gap: 12px;
+  }
+}
+
+/* ========== MOBILE FOOTER (EXACT MATCH TO ORIGINAL) ========== */
+
+@media (max-width: 768px) {
+  .footer-container {
+    width: 100%;
+    padding: 5px 10px 10px;
+    background: linear-gradient(to bottom, #0c1119 0%, #0b0f17 100%);
+    margin: 0px !important;
+  }
+
+  .more-games-grid .game-card {
+    margin: auto;
+  }
+
+  /* Stack everything vertically */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-left {
+    display: flexbox;
+    max-width: 100%;
+  }
+
+  /* Center logo + title row */
+  .footer-brand-row {
+    justify-content: center;
+    margin-bottom: 5px;
+    display: flex;
+  }
+
+  .footer-logo {
+    width: 70px;
+  }
+
+  .footer-tile-row {
+    gap: 1px;
+    margin-left: 20px;
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  /* Description text centered */
+  .footer-description {
+    max-width: 100%;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    font-size: 11px;
+    text-align: left;
+  }
+
+  /* Badges stacked or centered */
+  .footer-badges {
+    justify-content: center;
+    flex-wrap: nowrap;
+    display: flex;
+  }
+
+  .badge {
+    width: fit-content;
+    justify-content: center;
+    font-size: 9px;
+    padding: 7px 9px;
+
+  }
+
+  .footer-mobile-actions {
+    margin-bottom: 10px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Columns stacked in a single column */
+  .footer-right {
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    margin-left: 20px;
+    gap: 140px;
+  }
+
+  .footer-column ul {
+    padding: 0;
+  }
+
+  /* Divider stays centered */
+  .footer-divider {
+    margin: 30px auto;
+    width: 90%;
+  }
+
+  /* Bottom section centered */
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .back-to-top {
+    margin-top: 20px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    width: 100%;
+    padding: 5px 10px 10px;
+  }
+
+  /* Stack everything vertically */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-left {
+    display: flexbox;
+    max-width: 100%;
+  }
+
+  /* Center logo + title row */
+  .footer-brand-row {
+    justify-content: center;
+    margin-bottom: 5px;
+    display: flex;
+  }
+
+  .footer-logo {
+    width: 70px;
+  }
+
+  .footer-tile-row {
+    gap: 1px;
+    margin-left: 20px;
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  /* Description text centered */
+  .footer-description {
+    max-width: 100%;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    font-size: 11px;
+    text-align: left;
+  }
+
+  /* Badges stacked or centered */
+  .footer-badges {
+    justify-content: center;
+    flex-wrap: nowrap;
+    display: flex;
+  }
+
+
+
+  /* Columns stacked in a single column */
+  .footer-right {
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    margin-left: 20px;
+    gap: 140px;
+  }
+
+  .footer-column ul {
+    padding: 0;
+  }
+
+  /* Divider stays centered */
+  .footer-divider {
+    margin: 30px auto;
+    width: 90%;
+  }
+
+  /* Bottom section centered */
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+
+
+}
+
+@media (max-width: 380px) {
+  .footer-container {
+    width: 100%;
+    padding: 5px 10px 10px;
+  }
+
+  /* Stack everything vertically */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-left {
+    display: flexbox;
+    max-width: 100%;
+  }
+
+  /* Center logo + title row */
+  .footer-brand-row {
+    justify-content: center;
+    margin-bottom: 5px;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .footer-logo {
+    width: 70px;
+  }
+
+  .footer-tile-row {
+    gap: 1px;
+    margin-left: 20px;
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  /* Description text centered */
+  .footer-description {
+    max-width: 100%;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    font-size: 11px;
+    text-align: left;
+  }
+
+  /* Badges stacked or centered */
+  .footer-badges {
+    justify-content: center;
+    flex-wrap: nowrap;
+    display: flex;
+  }
+
+
+
+  /* Columns stacked in a single column */
+  .footer-right {
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    margin-left: 20px;
+    gap: 120px;
+  }
+
+  .footer-column ul {
+    padding: 0;
+  }
+
+  /* Divider stays centered */
+  .footer-divider {
+    margin: 30px auto;
+    width: 90%;
+  }
+
+  /* Bottom section centered */
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .back-to-top {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+}
+
+.VisibilityNone {
+  visibility: hidden;
+}
+
+/* ========== MOBILE FOOTER ACCORDION ========== */
+
+.FooterMobile {
+  padding: 20px 16px 5px;
+  background: radial-gradient(circle at top, #0f1a26, #070b12);
+  color: #fff;
+}
+
+/* QUICK ACTION BUTTONS */
+.footer-mobile-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.footer-mobile-actions button {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  backdrop-filter: blur(6px);
+}
+
+/* ACCORDION WRAPPER */
+.footer-mobile-accordions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ACCORDION CARD */
+.accordion {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* HEADER */
+.FooterMobile .accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ARROW */
+.FooterMobile .accordion-header .arrow {
+  font-size: 10px;
+  transition: transform 0.25s ease;
+}
+
+/* ROTATE ARROW WHEN OPEN */
+.FooterMobile .accordion.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* BODY */
+.FooterMobile .accordion-body {
+  list-style: none;
+  padding: 0 18px;
+  margin: 0;
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+}
+
+
+.FooterMobile .faq-icon-chevron {
+  position: relative;
+  top: 3px;
+}
+
+/* OPEN STATE */
+.accordion.open .accordion-body {
+  max-height: 500px;
+  padding: 8px 18px 16px;
+}
+
+/* ITEMS */
+.accordion-body li {
+  padding: 10px 0;
+  font-size: 15px;
+  color: #cfd8e3;
+  cursor: pointer;
+}
+
+.accordion-body li:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* COPYRIGHT */
+.footer-mobile-bottom {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 22px;
+}
+
+
+
+@media (min-width: 768px) {
+  .FooterMobile {
+    display: none !important;
+  }
+
+  .FooterDesktop {
+    display: block !important;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .FooterMobile {
+    display: block !important;
+  }
+
+  .FooterDesktop {
+    display: none !important;
+  }
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   DEVICE-SPECIFIC CSS MEDIA QUERIES
+   ========================================================================== */
+
+/* ========================================
+   APPLE iPHONE DEVICES
+   ======================================== */
+
+/* iPhone SE (1st Gen) - 320x568 @ 2x */
+@media only screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+
+  .brand-logo {
+    height: 48px !important;
+  }
+
+  .header-actions {
+    gap: 5px !important;
+  }
+
+}
+
+/* iPhone SE (2nd & 3rd Gen) - 375x667 @ 2x */
+@media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+
+  .brand-logo {
+    height: 48px !important;
+  }
+
+  .header-actions {
+    gap: 5px !important;
+  }
+
+}
+
+/* iPhone XR - 414x896 @ 2x */
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  /* iPhone XR styles */
+}
+
+/* iPhone 12 Pro - 390x844 @ 3x */
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 12 Pro styles */
+}
+
+/* iPhone 14 Pro Max - 430x932 @ 3x */
+@media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 14 Pro Max styles */
+}
+
+
+/* ========================================
+   GOOGLE PIXEL DEVICES
+   ======================================== */
+
+/* Pixel 7 - 412x915 @ 2.625x */
+@media only screen and (device-width: 412px) and (device-height: 915px) and (-webkit-device-pixel-ratio: 2.625) {
+  /* Pixel 7 styles */
+}
+
+
+/* ========================================
+   SAMSUNG GALAXY DEVICES
+   ======================================== */
+
+/* Samsung Galaxy S8+ - 360x740 @ 4x */
+@media only screen and (device-width: 360px) and (device-height: 740px) and (-webkit-device-pixel-ratio: 4) {
+  /* Galaxy S8+ styles */
+}
+
+/* Samsung Galaxy S20 Ultra - 412x915 @ 3.5x */
+@media only screen and (device-width: 412px) and (device-height: 915px) and (-webkit-device-pixel-ratio: 3.5) {
+  /* Galaxy S20 Ultra styles */
+}
+
+/* Samsung Galaxy A51 / A71 - 412x915 @ 2.625x */
+@media only screen and (device-width: 412px) and (device-height: 915px) and (-webkit-device-pixel-ratio: 2.625) {
+  /* Galaxy A51/A71 styles */
+}
+
+
+/* ========================================
+   APPLE iPAD DEVICES
+   ======================================== */
+
+/* iPad Mini (All generations) - 768x1024 @ 2x */
+@media only screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {
+  /* iPad Mini styles */
+}
+
+/* iPad Air (1st & 2nd Gen) - 768x1024 @ 2x */
+@media only screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {
+  /* iPad Air 1st & 2nd Gen styles */
+}
+
+/* iPad Air (4th Gen / 2020) - 820x1180 @ 2x */
+@media only screen and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) {
+  /* iPad Air 4th Gen styles */
+}
+
+/* iPad Pro 12.9" (3rd Gen onwards) - 1024x1366 @ 2x */
+@media only screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) {
+  /* iPad Pro 12.9" styles */
+}
+
+
+/* ========================================
+   MICROSOFT SURFACE DEVICES
+   ======================================== */
+
+/* Surface Pro 7 - 2736x1824 (Screen Resolution)
+   Note: Actual viewport is scaled, typically 912x1368 @ 3x */
+@media only screen and (min-device-width: 912px) and (max-device-width: 912px) and (-webkit-device-pixel-ratio: 3) {
+  /* Surface Pro 7 styles */
+}
+
+/* Surface Duo (Unfolded) - Each screen: 540x720, Combined: 1350x1800
+   Single screen viewport: 540x720 @ 2.5x */
+@media only screen and (device-width: 540px) and (device-height: 720px) and (-webkit-device-pixel-ratio: 2.5) {
+  /* Surface Duo single screen styles */
+}
+
+
+/* ========================================
+   FOLDABLE DEVICES
+   ======================================== */
+
+/* Galaxy Z Fold 5 (Cover Screen) - 904x2316 folded
+   Viewport when folded: ~344x882 */
+@media only screen and (max-device-width: 344px) and (device-height: 882px) {
+  /* Galaxy Z Fold 5 cover screen styles */
+}
+
+/* Galaxy Z Fold 5 (Inner Screen Unfolded) - 1812x2176
+   Viewport when unfolded: ~748x1024 @ 2.5x */
+@media only screen and (device-width: 748px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2.5) {
+  /* Galaxy Z Fold 5 unfolded styles */
+}
+
+/* Asus Zenbook Fold OLED (17.3" Unfolded) - 2560x1920
+   Can be used as 17.3" tablet or folded to 12.5" laptop */
+@media only screen and (min-device-width: 1280px) and (min-device-height: 960px) {
+  /* Asus Zenbook Fold OLED styles */
+}
+
+
+/* ========================================
+   SMART DISPLAYS
+   ======================================== */
+
+/* Nest Hub (7" Display) - 1024x600 */
+@media only screen and (device-width: 1024px) and (device-height: 600px) {
+  /* Nest Hub styles */
+}
+
+/* Nest Hub Max (10" Display) - 1280x800 */
+@media only screen and (device-width: 1280px) and (device-height: 800px) {
+  /* Nest Hub Max styles */
+}
+
+
+/* ========================================
+   ORIENTATION-SPECIFIC QUERIES
+   ======================================== */
+
+/* Portrait orientation example */
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  /* Portrait mode styles */
+}
+
+/* Landscape orientation example */
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  /* Landscape mode styles */
+}
+
+
+/* ========================================
+   NOTES
+   ======================================== */
+
+
+.lang-ta #recentSection .recent-label span, .lang-ml #recentSection .recent-label span {
+  font-size: 9px !important;
+}
+
+
+@media (max-width: 768px) {
+
+.lang-ta .click-count, .lang-ml .click-count{
+  font-size: 8px !important;
+}
+
+.lang-ta .play-button, .lang-ml .play-button{
+   font-size: 7px !important;
+}
+
+}
+
+
+.lang-ta .sidebar .label,  .lang-ml .sidebar .label{
+  font-size: 10px;
+}

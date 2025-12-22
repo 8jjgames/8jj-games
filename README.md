@@ -1,1 +1,1 @@
-# 8jj-games
+# 8JJGames

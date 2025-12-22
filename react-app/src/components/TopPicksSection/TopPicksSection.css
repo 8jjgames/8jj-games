@@ -1,0 +1,209 @@
+/* TopPicksSection.css */
+
+
+.top-picks-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.top-picks-header {
+  margin-bottom: 1.5rem;
+}
+
+.top-picks-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}
+
+/* Wrapper with Navigation */
+.top-picks-wrapper {
+  position: relative;
+}
+
+/* Navigation Buttons */
+.top-picks-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff00 !important;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.top-picks-nav:hover {
+  background: rgba(0, 0, 0, 0.85);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.top-picks-nav.left {
+  left: -24px;
+}
+
+.top-picks-nav.right {
+  right: -24px;
+}
+
+/* Container */
+.top-picks-container {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.5rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.top-picks-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Slide Layout */
+.top-picks-slide {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+  width: 100%;
+  min-width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Large Featured Game (Left Side) */
+.top-picks-featured {
+  flex: 0 0 36%;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 357px;
+  padding-right: 10px;
+}
+
+/* Small Games Grid (Right Side) */
+.top-picks-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.top-picks-grid-item {
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 120px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .top-picks-featured {
+    flex: 0 0 42%;
+  }
+}
+
+@media (max-width: 968px) {
+  .top-picks-slide {
+    flex-direction: column;
+  }
+
+  .top-picks-featured {
+    flex: 1;
+    min-height: 300px;
+  }
+
+  .top-picks-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .top-picks-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-picks-content {
+    padding: 0 1rem;
+  }
+
+  .top-picks-title {
+    font-size: 1.5rem;
+  }
+
+  .top-picks-featured {
+    min-height: 250px;
+  }
+
+  /* 9 games grid - 3x3 layout for mobile */
+  .top-picks-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(3, 1fr) !important;
+    gap: 15px !important;
+  }
+
+  .top-picks-grid-item {
+    min-height: 100px;
+    max-width: 120px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .top-picks-nav {
+    display: block;
+    background: #ffffff00 !important;
+  }
+
+  .top-picks-nav.right {
+    right: 5px;
+  }
+
+  .top-picks-nav.left {
+    left: 5px;
+  }
+
+  .top-picks-section .game-card {
+    max-width: none !important;
+  }
+
+  .top-picks-section .game-card img {
+    height: 100% !important;
+  }
+
+  .top-picks-section .top-picks-featured {
+    max-width: 100% !important;
+    padding: 0px;
+  }
+}
+
+.top-picks-featured .game-card {
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .top-picks-featured {
+    padding-right: 10px;
+  }
+
+  .top-picks-grid {
+    gap: 15px;
+  }
+}
+
+.top-picks-featured .game-card:hover {
+  box-shadow: none;
+}
