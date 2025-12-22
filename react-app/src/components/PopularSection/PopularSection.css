@@ -1,0 +1,51 @@
+/* PopularSection.css */
+
+
+.popular-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.popular-header {
+  margin-bottom: 2rem;
+}
+
+
+/* Click count badge */
+.click-count {
+  position: absolute;
+  top: -15px;
+  background: linear-gradient(90deg, #042d44 0%, #3753c5 100%);
+  /* background: linear-gradient(135deg, #0c3a5d 0%, #44c2ff 100%); */
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 12px rgb(0 74 146 / 40%);
+  z-index: 11;
+  backdrop-filter: blur(10px);
+}
+
+.empty-message {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+}
+
+.game-card-wrapper {
+  position: relative;
+}
+
+
+@media (max-width: 768px) {
+ #popularSection .play-button{
+  display: none;
+ }
+ #popularSection .game-card{
+  margin-bottom: 10px !important;
+ }
+}

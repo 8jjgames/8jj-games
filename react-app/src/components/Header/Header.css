@@ -1,0 +1,601 @@
+.header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(to bottom, rgba(8, 111, 145, 0.679), rgba(35, 141, 176, 0.408), rgba(29, 141, 179, 0.071));
+  border-bottom: 1px solid #5c6e8774;
+  margin-right: 0px;
+}
+
+.header-container {
+  width: 100%;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-logo {
+  height: 80px;
+}
+
+/* Hide hamburger on desktop */
+.menu-toggle {
+  display: none !important;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: right;
+  gap: 12px;
+}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  background: #0b0e15;
+  border-radius: 999px;
+  border: 1px solid #1f2933;
+  padding: 8px 30px 8px 12px;
+  color: #e5e7eb;
+  font-size: 13px;
+  min-width: 200px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.search-icon-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #e5e7eb;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.language-select {
+  background: #0b0e15;
+  border-radius: 999px;
+  border: 1px solid #1f2933;
+  padding: 6px 10px;
+  color: #e5e7eb;
+  font-size: 13px;
+}
+
+.share-header-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* HAMBURGER LINES */
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: #289dec;
+  margin: 3px 0;
+  display: block;
+}
+
+
+/* ===========================
+   MOBILE RESPONSIVE HEADER
+=========================== */
+@media (max-width: 768px) {
+
+  /* Reduce padding */
+  .header-container {
+    padding: 8px 12px;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  /* Smaller logo */
+  .brand-logo {
+    height: 80px;
+  }
+
+  /* Hide search on very small screens OR make it shrink */
+  .search input {
+    min-width: 120px;
+    /* reduce width */
+    padding: 6px 28px 6px 10px;
+    font-size: 10px;
+  }
+
+  .search-icon {
+    right: 8px;
+    font-size: 12px;
+  }
+
+  /* Fix header-actions alignment */
+  .header-actions {
+    margin-left: 0;
+    /* IMPORTANT FIX */
+    gap: 8px;
+  }
+
+  /* Language selector smaller */
+  .language-select {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  /* Share icon smaller */
+  .share-header-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+}
+
+/* Extra small devices (<430px) like iPhone SE */
+@media (max-width: 430px) {
+
+  /* Smaller logo */
+  .brand-logo {
+    height: 59px;
+  }
+
+  /* Search bar shrink more */
+  .search input {
+    min-width: 100px;
+  }
+
+  /* Reduce spacing */
+  .header-container {
+    gap: 6px;
+  }
+
+  /* Hide text labels inside dropdown if needed */
+  .language-select {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+}
+
+/* Show hamburger ONLY on mobile */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex !important;
+  }
+}
+
+
+/* Light and Dark Mode - Bubble Switch - Start */
+
+:root {
+  --bubbleTiming: cubic-bezier(0.5, 0.15, 0.25, 1.75);
+
+}
+
+.bubble-label,
+.bubble {
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bubble-label {
+  animation: float 4s ease-in-out infinite;
+}
+
+.bubble,
+.bubble:before,
+.bubble:after {
+  transition-duration: 0.2s;
+}
+
+.bubble,
+.bubble:after {
+  border-radius: 50%;
+}
+
+.bubble {
+  background-image: radial-gradient(8% 8% at 22% 28%,
+      hsl(0, 0%, 100%) 45%,
+      hsla(0, 0%, 100%, 0) 50%),
+    radial-gradient(8% 8% at 23% 27%,
+      hsl(0, 0%, 100%) 45%,
+      hsla(0, 0%, 100%, 0) 50%),
+    radial-gradient(8% 8% at 24% 26%,
+      hsl(0, 0%, 100%) 45%,
+      hsla(0, 0%, 100%, 0) 50%),
+    radial-gradient(8% 8% at 25% 25%,
+      hsl(0, 0%, 100%) 45%,
+      hsla(0, 0%, 100%, 0) 50%),
+    radial-gradient(8% 8% at 26% 24%,
+      hsl(0, 0%, 100%) 45%,
+      hsla(0, 0%, 100%, 0) 50%),
+    radial-gradient(8% 8% at 27% 23%,
+      hsl(0, 0%, 100%) 45%,
+      hsla(0, 0%, 100%, 0) 50%),
+    radial-gradient(8% 8% at 28% 22%,
+      hsl(0, 0%, 100%) 45%,
+      hsla(0, 0%, 100%, 0) 50%);
+  box-shadow: 0 -0.06em 0.1em hsl(0, 90%, 100%) inset,
+    0 -0.15em 0.4em hsl(0, 90%, 45%) inset, 0 0.05em 0.05em hsl(0, 90%, 45%) inset,
+    0.05em 0 0.1em hsl(0, 90%, 100%) inset,
+    -0.05em 0 0.1em hsl(0, 90%, 100%) inset, 0 0.1em 0.4em hsl(0, 90%, 60%) inset;
+  cursor: pointer;
+  position: relative;
+  width: 3em;
+  height: 3em;
+  transform-style: preserve-3d;
+  transition-property: box-shadow, transform, width, height;
+  transition-timing-function: ease-in-out, ease-in-out, var(--bubbleTiming),
+    var(--bubbleTiming);
+  will-change: transform;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 0;
+}
+
+.bubble:before,
+.bubble:after {
+  content: "";
+  display: block;
+  position: absolute;
+  transition-timing-function: var(--bubbleTiming);
+}
+
+.bubble:before {
+  border-radius: 0.75em;
+  box-shadow: 0 0 0 0.5em hsl(0, 0%, 100%) inset;
+  filter: drop-shadow(0.6em 0.6em 4px hsla(0, 0%, 0%, 0.2));
+  top: 50%;
+  left: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translate3d(-50%, -50%, -1px);
+  z-index: -1;
+}
+
+.bubble:after {
+  background: radial-gradient(100% 100% at center,
+      hsla(0, 0%, 0%, 0) 35%,
+      hsla(0, 0%, 0%, 0.2) 48%,
+      hsla(0, 0%, 0%, 0) 50%);
+  filter: blur(4px);
+  top: 0.6em;
+  left: 0.6em;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, -1px);
+  z-index: -2;
+}
+
+.bubble:focus,
+.bubble:hover {
+  transform: scale(1.1);
+  outline: none;
+}
+
+.bubble:focus:active,
+.bubble:hover:active {
+  width: 3.6em;
+  height: 2.4em;
+}
+
+.bubble:focus:before,
+.bubble:hover:before {
+  filter: drop-shadow(0.75em 0.75em 4px hsla(0, 0%, 0%, 0.2));
+}
+
+.bubble:focus:after,
+.bubble:hover:after {
+  transform: translate3d(0.15em, 0.15em, -1px);
+}
+
+.bubble:checked {
+  box-shadow: 0 -0.06em 0.1em hsl(120, 90%, 100%) inset,
+    0 -0.15em 0.4em hsl(120, 90%, 45%) inset,
+    0 0.05em 0.05em hsl(120, 90%, 45%) inset,
+    0.05em 0 0.1em hsl(120, 90%, 100%) inset,
+    -0.05em 0 0.1em hsl(120, 90%, 100%) inset,
+    0 0.1em 0.4em hsl(120, 90%, 60%) inset;
+}
+
+.bubble:checked:before {
+  border-radius: 0.25em;
+  width: 0.5em;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bubble-label {
+    animation: none;
+  }
+
+  .bubble,
+  .bubble:before,
+  .bubble:after {
+    transition-duration: 0s;
+  }
+
+  .bubble:focus,
+  .bubble:hover {
+    transform: scale(1);
+  }
+
+  .bubble:focus:active,
+  .bubble:hover:active {
+    width: 3em;
+    height: 3em;
+  }
+
+  .bubble:focus:before,
+  .bubble:hover:before {
+    filter: drop-shadow(0.6em 0.6em 4px hsla(0, 0%, 0%, 0.2));
+  }
+
+  .bubble:focus:after,
+  .bubble:hover:after {
+    transform: translate3d(0, 0, -1px);
+  }
+}
+
+/* Animations */
+@keyframes float {
+
+  from,
+  to {
+    transform: translate(0, 3%);
+  }
+
+  25% {
+    transform: translate(-3%, 0);
+  }
+
+  50% {
+    transform: translate(0, -3%);
+  }
+
+  75% {
+    transform: translate(3%, 0);
+  }
+}
+
+/* Light and Dark Mode - Bubble Switch - End */
+
+
+.MarginLeftRight {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+  .MarginLeftRight {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .ForcedHidden {
+    display: none;
+  }
+}
+
+.ForcedHidden {
+  visibility: hidden;
+}
+
+
+/* Opera-specific fixes - These styles ONLY apply in Opera browser */
+@supports (-o-object-fit: contain) {
+  .lang-switch {
+    overflow: hidden;
+  }
+
+  .language-select {
+    /* Remove default appearance in Opera */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Hide any white artifacts */
+    background-image: none !important;
+  }
+
+  /* Remove Opera's default dropdown indicator */
+  .language-select::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  .language-select::-ms-expand {
+    display: none;
+  }
+}
+
+/* Alternative Opera detection using CSS hack */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+  .language-select::-webkit-calendar-picker-indicator {
+    display: none;
+    opacity: 0;
+  }
+}
+
+/* Most reliable Opera-only selector using _:-o-prefocus */
+_:-o-prefocus,
+.language-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+}
+
+_:-o-prefocus,
+.lang-switch {
+  overflow: hidden;
+}
+
+
+/* ===========================
+   SIDEBAR TOGGLE BUTTON - NEW ANIMATED VERSION
+=========================== */
+
+.sidebar-toggle-btn {
+  position: relative;
+  background: rgb(30 41 59 / 0%);
+  border: 0px solid rgba(71, 85, 105, 0.5);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  margin-top: 15px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-toggle-btn:hover {
+  border-color: rgba(100, 116, 139, 1);
+  box-shadow: 0 20px 50px rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.menu-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.menu-icon .bar {
+  fill: #cbd5e1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.menu-icon .play {
+  fill: #13ace2;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Hover effects */
+.sidebar-toggle-btn:hover .bar {
+  fill: #60a5fa;
+}
+
+.sidebar-toggle-btn:hover .play {
+  fill: #93c5fd;
+  transform: scale(1.1) translateX(4px);
+}
+
+/* When sidebar is closed (default) - bars expand on hover */
+.sidebar-toggle-btn:not(.open):hover .bar:nth-of-type(2) {
+  width: 14px;
+}
+
+/* When sidebar is OPEN - flip the icon horizontally */
+.sidebar-toggle-btn.open .menu-icon {
+  transform: scaleX(-1);
+}
+
+.sidebar-toggle-btn.open .bar{
+  fill: #13ace2;
+}
+
+
+.sidebar-toggle-btn.open .play {
+  fill: #fff;
+}
+
+/* Click ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.sidebar-toggle-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: rgba(59, 130, 246, 0.3);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar-toggle-btn.ripple::before {
+  animation: ripple 0.6s ease-out;
+}
+
+/* Hide on mobile */
+@media (max-width: 900px) {
+  .sidebar-toggle-btn {
+    display: none !important;
+  }
+}
+
+
+
+.brand .menu-icon .play {
+    fill: #16bcf8;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.brand .menu-icon {
+    width: 27px;
+    height: 27px;
+    
+}
+
+#HIDEHIDEHIDE{
+  visibility: hidden !important;
+}

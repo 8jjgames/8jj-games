@@ -1,0 +1,31 @@
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+
+@media (max-width: 786px) {
+  .category-grid {
+    margin-top: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  .Cat-title{
+    text-align: left !important;
+  }
+
+  .category-card {
+    height: 100px;
+  }
+
+  .categorya-card-title {
+    font-size: 10px;
+  }
+
+  .mosaic-page.home-wrapper {
+    padding: 0px;
+    
+  }
+}
