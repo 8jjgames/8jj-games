@@ -107,6 +107,72 @@
   font-size: 13px;
 }
 
+/* Language Dropdown Styles */
+.lang-dropdown-container {
+  position: relative;
+}
+
+.lang-icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.lang-icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #0b0e15;
+  border: 1px solid #1f2933;
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.lang-dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.lang-option {
+  padding: 10px 16px;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 14px;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.lang-option:hover {
+  background: #1f2933;
+}
+
+.lang-option.active {
+  background: #2563eb;
+  color: white;
+}
+
 .share-header-icon {
   width: 20px;
   height: 20px;
@@ -167,6 +233,11 @@
     font-size: 12px;
   }
 
+  /* Language icon smaller on mobile */
+  .lang-icon-btn {
+    font-size: 18px;
+  }
+
   /* Share icon smaller */
   .share-header-icon {
     width: 18px;
@@ -197,6 +268,16 @@
   .language-select {
     font-size: 11px;
     padding: 4px 6px;
+  }
+
+  /* Adjust language dropdown for small screens */
+  .lang-dropdown {
+    min-width: 130px;
+  }
+
+  .lang-option {
+    padding: 8px 12px;
+    font-size: 13px;
   }
 
 }

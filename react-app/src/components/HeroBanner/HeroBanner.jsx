@@ -4,7 +4,12 @@ import "./HeroBanner.css";
 
 export default function HeroBanner({ slides, autoPlay = true, interval = 5000 }) {
   const [index, setIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
   const navigate = useNavigate();
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     if (!autoPlay || slides.length <= 1) return;
@@ -34,21 +39,51 @@ export default function HeroBanner({ slides, autoPlay = true, interval = 5000 })
     setIndex((prev) => (prev + 1) % slides.length);
   };
 
+  // Touch event handlers
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      // Swipe left = next slide
+      setIndex((prev) => (prev + 1) % slides.length);
+    }
+    if (isRightSwipe) {
+      // Swipe right = previous slide
+      setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+    }
+  };
+
   return (
     <section
       className="hero-banner"
       style={{ backgroundImage: `url(${slide.background})` }}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       <div className="hero-overlay" />
 
-      {/* ◀ LEFT ARROW */}
+      {/* LEFT ARROW */}
       {slides.length > 1 && (
         <button className="hero-arrow left" onClick={prevSlide}>
           ‹
         </button>
       )}
 
-      {/* ▶ RIGHT ARROW */}
+      {/* RIGHT ARROW */}
       {slides.length > 1 && (
         <button className="hero-arrow right" onClick={nextSlide}>
           ›
@@ -74,6 +109,20 @@ export default function HeroBanner({ slides, autoPlay = true, interval = 5000 })
           </button>
         )}
       </div>
+
+      {/* Slide indicators */}
+      {slides.length > 1 && (
+        <div className="hero-indicators">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              className={`indicator ${i === index ? "active" : ""}`}
+              onClick={() => setIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

@@ -63,7 +63,7 @@ export default function GameSection({ title, games, id, categoryId, allGamesPage
     ? [...games, ...games] // ✅ duplication
     : showAll
     ? games
-    : games.slice(0, 12);
+    : games.slice(0, 14);
 
   return (
     <section className="game-section" id={id}>
@@ -86,7 +86,7 @@ export default function GameSection({ title, games, id, categoryId, allGamesPage
           </div>
         )}
 
-        {!slider && games.length > 12 && (
+        {!slider && games.length > 14 && (
           <div className="container">
             {/* <a
               href="#"

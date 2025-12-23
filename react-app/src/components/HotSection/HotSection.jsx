@@ -9,8 +9,8 @@ export default function HotSection({ games, id, lang, translate }) {
 
   useEffect(() => {
     if (games && Array.isArray(games)) {
-      // Keep only 12 games
-      const limitedGames = games.slice(0, 12);
+      // Keep only 14 games
+      const limitedGames = games.slice(0, 14);
       setHotGames(limitedGames);
     }
     setLoading(false);
@@ -39,12 +39,15 @@ export default function HotSection({ games, id, lang, translate }) {
         {hotGames && hotGames.length > 0 ? (
           <div className="games-grid">
             {hotGames.map((game, index) => (
-              <GameCard 
-                key={game.id || index} 
-                game={game} 
+              <GameCard
+                key={`${game.id}-${index}`}
+                game={game}
                 index={index}
+                isHot
               />
+
             ))}
+            
           </div>
         ) : (
           <div className="empty-message">

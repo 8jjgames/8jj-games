@@ -6,6 +6,10 @@ import { selfHostedGames } from "../../data/selfHostedGames";
 import ScrollToTop from "../../components/ScrollToTop";
 import { useLanguage } from "../../context/LanguageContext";
 import { translate } from "../../data/translations";
+import { useMemo } from "react";
+
+import GameShareModal from "../../components/GameShareModal/GameShareModal";
+
 
 export default function GamePageV2() {
   const { id } = useParams();
@@ -21,6 +25,19 @@ export default function GamePageV2() {
   const [pageLoading, setPageLoading] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
+  const [showShare, setShowShare] = useState(false);
+
+  //for share game url
+  const gameUrl = useMemo(() => {
+    if (!game) return "";
+    return `${window.location.origin}/game/${game.id}`;
+  }, [game]);
+
+  // for random rate ganeration
+  const rating = useMemo(() => {
+    if (!game) return "4.5";
+    return (4.5 + Math.random() * 0.5).toFixed(1);
+  }, [game?.id]);
 
   const RELATED_CATEGORIES = {
     shooting: ["action", "war", "fps", "gun"],
@@ -200,10 +217,18 @@ export default function GamePageV2() {
       <ScrollToTop />
 
       <div className="center-column">
-        <h2 className="play-title">
-          {translate("clickPlayToStart", lang)} {game.title}
-        </h2>
+        <div className="game-header">
+          <h2 className="play-title">{game.title}</h2>
 
+          <button
+            className="game-share-btn"
+            onClick={() => setShowShare(true)}
+            title="Share this game"
+          >
+            🔗 Share
+          </button>
+        </div>
+        
         <div
           className={`game-frame-container ${isFullscreen ? "fullscreen" : ""}`}
           ref={frameRef}
@@ -241,6 +266,15 @@ export default function GamePageV2() {
           )}
         </div>
 
+        {/* ADD MODAL HERE */}
+        {game && (
+          <GameShareModal
+            open={showShare}
+            onClose={() => setShowShare(false)}
+            title={game.title}
+            url={gameUrl}
+          />
+        )}
         {/* ℹ️ INFO */}
         <div className="game-info-bar">
           <div className="info-block">
@@ -253,7 +287,7 @@ export default function GamePageV2() {
           </div>
           <div className="info-block">
             <span className="label">{translate("rating", lang)}</span>
-            <span className="value">4.5 ★</span>
+            <span className="value">{rating} ⭐</span>
           </div>
           <div className="info-block">
             <span className="label">{translate("added", lang)}</span>
@@ -264,8 +298,8 @@ export default function GamePageV2() {
         {/* 🔁 MORE GAMES */}
         <h3 className="more-title section-title">{translate("moreGames", lang)}</h3>
         <div className="more-games-grid">
-          {moreGames.map(g => (
-            <div key={g.id} className="game-card" onClick={() => changeGame(g.id)}>
+          {moreGames.map((g, index) => (
+            <div key={`${g.id}-${index}`} className="game-card" onClick={() => changeGame(g.id)}>
               <img src={g.image} alt={g.title} />
               <div className="play-button">{translate("playNow", lang)}</div>
               <div className="game-overlay">
@@ -279,8 +313,8 @@ export default function GamePageV2() {
 
       {/* 📌 SIDE COLUMN */}
       <div className="side-column">
-        {sideGames.map(g => (
-          <div key={g.id} className="game-card game-card-side" onClick={() => changeGame(g.id)}>
+        {sideGames.map((g, index) => (
+          <div key={`${g.id}-${index}`} className="game-card game-card-side" onClick={() => changeGame(g.id)}>
             <img src={g.image} alt={g.title} />
             <div className="play-button">{translate("playNow", lang)}</div>
             <div className="game-overlay">

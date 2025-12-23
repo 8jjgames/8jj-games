@@ -42,8 +42,8 @@ export default function TopPicksSection({ title, games, id }) {
   };
 
   // Group games into slides - adjust based on mobile/desktop
-  const gamesPerSlide = isMobile ? 10 : 9; // 1 featured + 9 grid (mobile) or 1 featured + 8 grid (desktop)
-  const gridGamesCount = isMobile ? 9 : 8;
+  const gamesPerSlide = isMobile ? 10 : 11; // 1 featured + 9 grid (mobile) or 1 featured + 8 grid (desktop)
+  const gridGamesCount = isMobile ? 9 : 10;
 
   const slides = [];
   for (let i = 0; i < games.length; i += gamesPerSlide) {

@@ -1,7 +1,7 @@
 import "./Header.css";
 import { useLanguage } from "../../context/LanguageContext";
 import { translate } from "../../data/translations";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import ShareModal from "../ShareModal/ShareModal";
 import { useSearch } from "../../context/SearchContext";
 
@@ -10,6 +10,8 @@ export default function Header() {
   const { search, setSearch } = useSearch();
   const [shareOpen, setShareOpen] = useState(false);
   const [sidebarHidden, setSidebarHidden] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
@@ -23,6 +25,41 @@ export default function Header() {
     setSidebarHidden((prev) => !prev);
     document.dispatchEvent(new CustomEvent("toggleSidebar"));
   };
+
+  const toggleLangDropdown = () => {
+    setLangDropdownOpen((prev) => !prev);
+  };
+
+  const handleLanguageChange = (newLang) => {
+    changeLanguage(newLang);
+    setLangDropdownOpen(false);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setLangDropdownOpen(false);
+      }
+    };
+
+    if (langDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [langDropdownOpen]);
+
+  const languages = [
+    { code: "en", name: "English" },
+    { code: "hi", name: "हिन्दी" },
+    { code: "ta", name: "தமிழ்" },
+    { code: "ml", name: "മലയാളം" },
+    { code: "kn", name: "ಕನ್ನಡ" },
+    { code: "bn", name: "বাংলা" }
+  ];
 
   
   return (
@@ -106,20 +143,25 @@ export default function Header() {
               </button>
             </div>
 
-            <div className="lang-switch MarginLeftRight">
-              <span className="language-label">🌐</span>
-              <select
-                className="language-select"
-                value={lang}
-                onChange={(e) => changeLanguage(e.target.value)}
+            <div className="lang-dropdown-container MarginLeftRight" ref={dropdownRef}>
+              <button 
+                className="icon-btn lang-icon-btn" 
+                onClick={toggleLangDropdown}
+                aria-label="Select language"
               >
-                <option value="en">English</option>
-                <option value="hi">हिन्दी</option>
-                <option value="ta">தமிழ்</option>
-                <option value="ml">മലയാളം</option>
-                <option value="kn">ಕನ್ನಡ</option>
-                <option value="bn">বাংলা</option>
-              </select>
+                🌐
+              </button>
+              <div className={`lang-dropdown ${langDropdownOpen ? 'open' : ''}`}>
+                {languages.map((language) => (
+                  <button
+                    key={language.code}
+                    className={`lang-option ${lang === language.code ? 'active' : ''}`}
+                    onClick={() => handleLanguageChange(language.code)}
+                  >
+                    {language.name}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <button className="icon-btn" onClick={() => setShareOpen(true)}>
