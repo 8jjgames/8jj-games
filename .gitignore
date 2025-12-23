@@ -33,3 +33,6 @@ Thumbs.db
 # Cache
 .cache/
 .vite/
+react-app/vite.config.js
+react-app/server.js
+react-app/server.js
