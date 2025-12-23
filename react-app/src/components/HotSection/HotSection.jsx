@@ -39,12 +39,15 @@ export default function HotSection({ games, id, lang, translate }) {
         {hotGames && hotGames.length > 0 ? (
           <div className="games-grid">
             {hotGames.map((game, index) => (
-              <GameCard 
-                key={game.id || index} 
-                game={game} 
+              <GameCard
+                key={`${game.id}-${index}`}
+                game={game}
                 index={index}
+                isHot
               />
+
             ))}
+            
           </div>
         ) : (
           <div className="empty-message">

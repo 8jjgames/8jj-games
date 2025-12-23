@@ -423,3 +423,18 @@
 #featuredSection  .game-category{
   font-size: 9px !important;
 }
+@media (max-width: 768px) {
+  .game-card .game-image-hot{
+    height: 10px;
+}
+}
+@media (max-width: 480px) {
+  .game-card .game-image-hot{
+    height: 10px;
+}
+}
+
+.hot-badge img {
+  height: 10px;
+}
+
