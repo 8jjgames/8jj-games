@@ -240,6 +240,14 @@ export default function Home() {
       categoryId="featuredSection"
     />
 
+        <HotSection
+      id="hotGames"
+      games={categories.hot}
+      lang={lang}
+      translate={translate}
+    />
+
+
     <GameSection
       id="christmas"
       title={`🎅🏻 ${translate("christmas", lang)} ${translate("games", lang)}`}
@@ -369,13 +377,6 @@ export default function Home() {
       title={`🧩 ${translate("puzzles", lang)}`}
       games={categories.puzzles}
       categoryId="puzzles"
-    />
-
-    <HotSection
-      id="hotGames"
-      games={categories.hot}
-      lang={lang}
-      translate={translate}
     />
 
     <GameSection
