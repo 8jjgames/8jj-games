@@ -9,8 +9,8 @@ export default function HotSection({ games, id, lang, translate }) {
 
   useEffect(() => {
     if (games && Array.isArray(games)) {
-      // Keep only 12 games
-      const limitedGames = games.slice(0, 12);
+      // Keep only 14 games
+      const limitedGames = games.slice(0, 14);
       setHotGames(limitedGames);
     }
     setLoading(false);

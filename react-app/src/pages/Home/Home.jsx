@@ -131,7 +131,7 @@ export default function Home() {
     featured: games.slice(0, 12),
     recent: games.slice(12, 50),
     popular: games.slice(0, 30).sort(() => Math.random() - 0.5),
-    hot: games.slice(30, 42).sort(() => Math.random() - 0.5),
+    hot: games.slice(30, 44).sort(() => Math.random() - 0.5),
     // top100: games.slice(0, 100),
     christmas: games.filter(g => g.tagList?.includes("christmas")),
     puzzles: games.filter(g => g.category === "puzzles"),
