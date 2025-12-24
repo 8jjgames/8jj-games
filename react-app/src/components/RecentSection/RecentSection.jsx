@@ -11,12 +11,24 @@ export default function RecentSection({ id, lang, translate }) {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    // Load recent games from localStorage
-    const games = loadRecent();
-    // Keep only 30 games
-    const limitedGames = games.slice(0, 30);
-    setRecentGames(limitedGames);
-    setLoading(false);
+    // Function to load games
+    const fetchRecent = () => {
+      const games = loadRecent();
+      const limitedGames = games.slice(0, 30);
+      setRecentGames(limitedGames);
+      setLoading(false);
+    };
+
+    // Initial load
+    fetchRecent();
+
+    // Listen for updates
+    window.addEventListener("recentGamesUpdated", fetchRecent);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("recentGamesUpdated", fetchRecent);
+    };
   }, []);
 
   useEffect(() => {

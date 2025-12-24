@@ -15,6 +15,7 @@ import { selfHostedGames } from "../../data/selfHostedGames";
 import CategoryGrid from "../../components/CategoryGrid/CategoryGrid";
 import { useNavigate } from "react-router-dom";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
+import { BLOCKED_GAME_IDS } from "../../utils/blockedGames";
 
 
 
@@ -31,8 +32,14 @@ export default function Home() {
       const h5 = await fetchH5Games();
       const all = [...selfHostedGames, ...h5];
 
-      setGames(all);
-      localStorage.setItem("games", JSON.stringify(all));
+      const filtered = all.filter(
+      g => !BLOCKED_GAME_IDS.includes(String(g.id).toLowerCase())
+    );
+
+      setGames(filtered);
+
+      // setGames(all);
+      localStorage.setItem("games", JSON.stringify(filtered));
       setLoading(false);
     };
 

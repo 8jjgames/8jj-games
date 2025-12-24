@@ -10,8 +10,20 @@ export default function GameSection({ title, games, id, categoryId, allGamesPage
   const trackRef = useRef(null);
   const firstSetWidth = useRef(0);
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
 
+  // Detect screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!slider) return;
@@ -59,11 +71,14 @@ export default function GameSection({ title, games, id, categoryId, allGamesPage
     };
   }, [slider, games]);
 
+  // Determine the limit based on screen size
+  const gameLimit = isMobile ? 6 : 14;
+
   const visibleGames = slider
     ? [...games, ...games] // ✅ duplication
     : showAll
     ? games
-    : games.slice(0, 14);
+    : games.slice(0, gameLimit);
 
   return (
     <section className="game-section" id={id}>
@@ -86,9 +101,9 @@ export default function GameSection({ title, games, id, categoryId, allGamesPage
           </div>
         )}
 
-        {!slider && games.length > 14 && (
+        {!slider && games.length > gameLimit && (
           <div className="container">
-            {/* <a
+            {/* 
               href="#"
               className="btn"
               onClick={(e) => {

@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import "./MosaicGamePage.css";
 // import { useSearch } from "../../context/SearchContext.jsx";
 
+
 const INITIAL_COUNT = 40;
 
 export default function MosaicGamesPage() {

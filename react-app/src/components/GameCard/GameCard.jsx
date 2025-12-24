@@ -1,13 +1,18 @@
 import "./GameCard.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { translate } from "../../data/translations";
 import { pushRecent } from "../../utils/localStorage";
 import { trackGameClick } from "../../utils/popularGamesUtils";
+import { getGameThumb } from "../../utils/getGameThumb";
+
 
 export default function GameCard({ game, index, isHot }) {
   const navigate = useNavigate();
   const { lang } = useLanguage();
+
+  const [imgSrc, setImgSrc] = useState(getGameThumb(game));
 
   const openGame = () => {
     if (!game || !game.id) return;
@@ -35,7 +40,15 @@ export default function GameCard({ game, index, isHot }) {
 
   return (
     <div className="game-card" onClick={openGame}>
-      <img src={game.image} alt={game.title} className="game-image" />
+      {/* Wrap image in container for overflow control */}
+      <div className="game-image-container">
+        <img 
+          src={imgSrc}
+          alt={game.title}
+          className="game-image"
+          onError={() => setImgSrc(game.image)}   // ✅ fallback
+        />
+      </div>
 
       <div className="play-button">
         {translate("playNow", lang)}

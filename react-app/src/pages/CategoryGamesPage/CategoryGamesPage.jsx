@@ -5,6 +5,7 @@ import { translate } from "../../data/translations";
 import { useLanguage } from "../../context/LanguageContext";
 import "./CategoryGamesPage.css";
 
+
 export default function CategoryGamesPage() {
   const { categoryId } = useParams();
   const { lang } = useLanguage();

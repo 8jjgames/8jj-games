@@ -235,6 +235,12 @@
     animation-delay: 0.1s;
 }
 
+
+#recentSection .game-card {
+    max-width: 80px;
+    min-width: 70px;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     #recentSection .recent-header {
@@ -276,12 +282,14 @@
     #recentSection .skeleton-title {
         width: 50px;
     }
-}
-
-
-#recentSection .game-card {
+    #recentSection .game-card {
     max-width: 80px;
+    min-width: 50px;
 }
+}
+
+
+
 
 
 #recentSection .game-card:hover .play-button {
