@@ -83,7 +83,7 @@ export default function TopPicksSection({ title, games, id }) {
                 {/* Large Featured Game (Left) */}
                 {slideGames[0] && (
                   <div className="top-picks-featured">
-                    <GameCard game={slideGames[0]} index={0} />
+                    <GameCard game={slideGames[0]} index={0} isFeatured={true} />
                   </div>
                 )}
 

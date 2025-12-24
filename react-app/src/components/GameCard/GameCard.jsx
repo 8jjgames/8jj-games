@@ -35,7 +35,10 @@ export default function GameCard({ game, index, isHot }) {
 
   return (
     <div className="game-card" onClick={openGame}>
-      <img src={game.image} alt={game.title} className="game-image" />
+      {/* Wrap image in container for overflow control */}
+      <div className="game-image-container">
+        <img src={game.image} alt={game.title} className="game-image" />
+      </div>
 
       <div className="play-button">
         {translate("playNow", lang)}

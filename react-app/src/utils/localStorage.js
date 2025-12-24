@@ -15,16 +15,23 @@ export function saveRecent(list) {
 }
 
 export function pushRecent(game) {
-  const list = loadRecent().filter((g) => g.id !== game.id);
-  list.unshift({
-    id: game.id,
-    title: game.title,
-    image: game.image,
-    category: game.category || "",
-    gameId: game.gameId,
-    externalUrl: game.externalUrl,
-    ts: Date.now(),
-  });
-  if (list.length > 12) list.length = 12;
-  saveRecent(list);
+  try {
+    const list = loadRecent().filter((g) => g.id !== game.id);
+    list.unshift({
+      id: game.id,
+      title: game.title,
+      image: game.image,
+      category: game.category || "",
+      gameId: game.gameId,
+      externalUrl: game.externalUrl,
+      ts: Date.now(),
+    });
+    if (list.length > 12) list.length = 12;
+    saveRecent(list);
+    
+    // Dispatch custom event to notify components of updates
+    window.dispatchEvent(new Event("recentGamesUpdated"));
+  } catch (err) {
+    console.error("Error pushing recent game:", err);
+  }
 }

@@ -549,6 +549,7 @@
 
 #featuredSection .game-card {
   max-height: 120px !important;
+  min-width: 100px;
 }
 
 
@@ -631,7 +632,7 @@
   .game-section:hover {
     transition: box-shadow 0.6s ease, transform 0.6s ease;
     background: none !important;
-
+    box-shadow: none !important;
 
   }
 }
@@ -640,7 +641,7 @@
   .game-section:hover {
     transition: box-shadow 0.6s ease, transform 0.6s ease;
     background: none !important;
-
+    box-shadow: none !important;
   }
 
 }
@@ -649,6 +650,7 @@
   .game-section:hover {
     transition: box-shadow 0.6s ease, transform 0.6s ease;
     background: none !important;
+    box-shadow: none !important;
 
 
   }
@@ -749,4 +751,12 @@
 #featuredSection.game-section:hover {
   box-shadow: none !important;
   background: none !important;
+}
+
+
+@media (min-width: 768px) {
+  .home-wrapper .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    row-gap: 20px;
+  }
 }

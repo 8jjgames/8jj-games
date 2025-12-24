@@ -72,7 +72,7 @@ export default function GameSection({ title, games, id, categoryId, allGamesPage
   }, [slider, games]);
 
   // Determine the limit based on screen size
-  const gameLimit = isMobile ? 12 : 14;
+  const gameLimit = isMobile ? 6 : 14;
 
   const visibleGames = slider
     ? [...games, ...games] // ✅ duplication

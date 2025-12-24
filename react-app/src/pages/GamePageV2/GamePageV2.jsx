@@ -225,7 +225,11 @@ export default function GamePageV2() {
             onClick={() => setShowShare(true)}
             title="Share this game"
           >
-            🔗 Share
+            <img
+                src="/images/shared.png"
+                alt="Share"
+                className="share-header-icon"
+              /> Share
           </button>
         </div>
         
@@ -319,6 +323,7 @@ export default function GamePageV2() {
             <div className="play-button">{translate("playNow", lang)}</div>
             <div className="game-overlay">
               <div className="game-title">{g.title}</div>
+              {g.category && <div className="game-category">{g.category}</div>}
             </div>
           </div>
         ))}

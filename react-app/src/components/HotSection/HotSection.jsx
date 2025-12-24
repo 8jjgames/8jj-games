@@ -23,7 +23,7 @@ export default function HotSection({ games, id, lang, translate }) {
   useEffect(() => {
     if (games && Array.isArray(games)) {
       // Determine the limit based on screen size
-      const gameLimit = isMobile ? 12 : 14;
+      const gameLimit = isMobile ? 6 : 14;
       // Keep only limited games based on screen size
       const limitedGames = games.slice(0, gameLimit);
       setHotGames(limitedGames);
