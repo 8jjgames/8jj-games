@@ -6,15 +6,30 @@ import "./HotSection.css";
 export default function HotSection({ games, id, lang, translate }) {
   const [hotGames, setHotGames] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (games && Array.isArray(games)) {
-      // Keep only 14 games
-      const limitedGames = games.slice(0, 14);
+      // Determine the limit based on screen size
+      const gameLimit = isMobile ? 12 : 14;
+      // Keep only limited games based on screen size
+      const limitedGames = games.slice(0, gameLimit);
       setHotGames(limitedGames);
     }
     setLoading(false);
-  }, [games]);
+  }, [games, isMobile]);
 
   if (loading) {
     return (
@@ -55,6 +70,6 @@ export default function HotSection({ games, id, lang, translate }) {
           </div>
         )}
       </div>
-    </section>
+    </section> 
   );
 }
