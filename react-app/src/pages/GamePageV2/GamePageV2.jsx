@@ -7,6 +7,8 @@ import ScrollToTop from "../../components/ScrollToTop";
 import { useLanguage } from "../../context/LanguageContext";
 import { translate } from "../../data/translations";
 import { useMemo } from "react";
+import { getGameThumb } from "../../utils/getGameThumb";
+
 
 import GameShareModal from "../../components/GameShareModal/GameShareModal";
 
@@ -26,6 +28,9 @@ export default function GamePageV2() {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const [showShare, setShowShare] = useState(false);
+
+  const [imgSrc, setImgSrc] = useState(getGameThumb(game));
+  
 
   //for share game url
   const gameUrl = useMemo(() => {
@@ -258,7 +263,12 @@ export default function GamePageV2() {
           ) : (
             <div
               className="game-poster"
-              style={{ backgroundImage: `url(${game.image})` }}
+              style={{
+                backgroundImage: `
+                  url(${getGameThumb(game)}),
+                  url(${game.image})
+                `,
+              }}
               onClick={startGame}
             >
               <div className="poster-overlay">
@@ -304,7 +314,15 @@ export default function GamePageV2() {
         <div className="more-games-grid">
           {moreGames.map((g, index) => (
             <div key={`${g.id}-${index}`} className="game-card" onClick={() => changeGame(g.id)}>
-              <img src={g.image} alt={g.title} />
+              <img
+                src={getGameThumb(g)}
+                alt={g.title}
+                className="game-image"
+                onError={(e) => {
+                  e.currentTarget.src = g.image;
+                }}
+              />
+
               <div className="play-button">{translate("playNow", lang)}</div>
               <div className="game-overlay">
                 <div className="game-title">{g.title}</div>
@@ -319,7 +337,15 @@ export default function GamePageV2() {
       <div className="side-column">
         {sideGames.map((g, index) => (
           <div key={`${g.id}-${index}`} className="game-card game-card-side" onClick={() => changeGame(g.id)}>
-            <img src={g.image} alt={g.title} />
+            <img 
+              src={getGameThumb(g)}
+              alt={g.title}
+              className="game-image"
+              onError={(e) => {
+                e.currentTarget.src = g.image;
+              }}
+            />
+
             <div className="play-button">{translate("playNow", lang)}</div>
             <div className="game-overlay">
               <div className="game-title">{g.title}</div>

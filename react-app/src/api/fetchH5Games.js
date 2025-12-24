@@ -1,4 +1,14 @@
 // api/fetchH5Games.js
+
+const BLOCKED_GAME_KEYWORDS = [
+  "unhook",
+  "bra",
+  "adult",
+  "sex",
+  "kiss",
+];
+
+
 export async function fetchH5Games() {
   const res = await fetch(
     `/api/proxy?url=${encodeURIComponent(
@@ -8,19 +18,28 @@ export async function fetchH5Games() {
 
   const data = await res.json();
 
-  return data.map((g, i) => ({
-    id: g.guid || i,
-    title: g.title,
+  return data
+    // 🚫 BLOCK UNWANTED GAMES FIRST
+    .filter(g => {
+      const title = g.title?.toLowerCase() || "";
+      return !BLOCKED_GAME_KEYWORDS.some(keyword =>
+        title.includes(keyword)
+      );
+    })
 
-    // 🔥 IMAGE MUST ALSO GO THROUGH PROXY
-    image: `/api/proxy?url=${encodeURIComponent(g.thumb)}`,
+    // ✅ MAP CLEAN DATA
+    .map((g, i) => ({
+      id: g.guid || `h5-${i}`,
+      title: g.title,
 
-    embed: g.link,
-    description: g.description,
+      image: `/api/proxy?url=${encodeURIComponent(g.thumb)}`,
 
-    category: g.category === "puzzle" ? "puzzles" : g.category,
-    tagList: g.tags.toLowerCase().split(","),
+      embed: g.link,
+      description: g.description,
 
-    source: "h5games"
-  }));
+      category: g.category === "puzzle" ? "puzzles" : g.category,
+      tagList: g.tags?.toLowerCase().split(",") || [],
+
+      source: "h5games",
+    }));
 }

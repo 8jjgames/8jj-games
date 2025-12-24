@@ -1,13 +1,18 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { pushRecent } from "../../utils/localStorage";
 import { trackGameClick } from "../../utils/popularGamesUtils";
 import { useLanguage } from "../../context/LanguageContext";
 import { translate } from "../../data/translations";
 import "./MosaicGameCard.css";
+import { getGameThumb } from "../../utils/getGameThumb";
+
 
 export default function MosaicGameCard({ game }) {
   const navigate = useNavigate();
   const { lang } = useLanguage();
+
+  const [imgSrc, setImgSrc] = useState(getGameThumb(game));
 
   const openGame = () => {
     // Check if game has valid data
@@ -45,7 +50,12 @@ export default function MosaicGameCard({ game }) {
       className={`mosaic-card ${game.size || "small"}`}
       onClick={openGame}
     >
-      <img src={game.image} alt={game.title} />
+      <img 
+        src={imgSrc}
+        alt={game.title}
+        className="game-image"
+        onError={() => setImgSrc(game.image)}   // ✅ fallback
+      />
 
       {/* Play Now Button */}
       <div className="mosaic-play-button">
