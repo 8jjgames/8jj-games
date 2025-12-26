@@ -10,19 +10,26 @@ export default function GameSection({ title, games, id, categoryId, allGamesPage
   const trackRef = useRef(null);
   const firstSetWidth = useRef(0);
   const [showAll, setShowAll] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [deviceType, setDeviceType] = useState('desktop');
   const navigate = useNavigate();
 
   // Detect screen size
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const checkDevice = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setDeviceType('mobile');
+      } else if (width >= 768 && width <= 1024) {
+        setDeviceType('tablet');
+      } else {
+        setDeviceType('desktop');
+      }
     };
     
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
     
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
   useEffect(() => {
@@ -72,7 +79,7 @@ export default function GameSection({ title, games, id, categoryId, allGamesPage
   }, [slider, games]);
 
   // Determine the limit based on screen size
-  const gameLimit = isMobile ? 6 : 14;
+  const gameLimit = deviceType === 'desktop' ? 14 : 6;
 
   const visibleGames = slider
     ? [...games, ...games] // ✅ duplication

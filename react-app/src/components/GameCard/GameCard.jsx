@@ -13,6 +13,7 @@ export default function GameCard({ game, index, isHot }) {
   const { lang } = useLanguage();
 
   const [imgSrc, setImgSrc] = useState(getGameThumb(game));
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const openGame = () => {
     if (!game || !game.id) return;
@@ -38,15 +39,27 @@ export default function GameCard({ game, index, isHot }) {
     navigate(`/game/${game.id}`, { state: { game, index } });
   };
 
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+  const handleImageError = () => {
+    setImgSrc(game.image);
+    setImageLoaded(true);
+  };
+
   return (
     <div className="game-card" onClick={openGame}>
       {/* Wrap image in container for overflow control */}
       <div className="game-image-container">
+        {!imageLoaded && <div className="game-card-skeleton" />}
         <img 
           src={imgSrc}
           alt={game.title}
-          className="game-image"
-          onError={() => setImgSrc(game.image)}   // ✅ fallback
+          className={`game-image ${imageLoaded ? 'loaded' : ''}`}
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+          style={{ opacity: imageLoaded ? 1 : 0 }}
         />
       </div>
 

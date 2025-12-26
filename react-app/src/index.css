@@ -10,7 +10,7 @@ body {
   /* background: linear-gradient(45deg, #161616 13%, #1c232d 66%,  rgb(29, 40, 47)); */
   background: rgb(4, 4, 4);
   color: #fff;
-  
+
 }
 
 
@@ -59,7 +59,8 @@ html {
 .home-wrapper,
 #searchResults,
 #top-picks,
-.all-games-page,.ScrollSnap {
+.all-games-page,
+.ScrollSnap {
   scroll-snap-align: start;
   view-timeline: --section;
 }
@@ -71,7 +72,8 @@ html {
 .home-wrapper,
 #searchResults,
 #top-picks,
-.all-games-page,.ScrollSnap {
+.all-games-page,
+.ScrollSnap {
   animation: backwards-scroll ease-in-out both;
   animation-timeline: --section;
   position: relative;
@@ -84,5 +86,25 @@ body {
 }
 
 
+@media (max-width: 768px) {
+
+ .more-title.section-title,.search-overlay {
+    animation: backwards-scroll ease-in-out both;
+    animation-timeline: --section;
+    position: relative;
+    scroll-snap-align: start;
+    view-timeline: --section;
+  }
+}
 
 
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .more-title.section-title,.search-overlay {
+    animation: backwards-scroll ease-in-out both;
+    animation-timeline: --section;
+    position: relative;
+    scroll-snap-align: start;
+    view-timeline: --section;
+  }
+}

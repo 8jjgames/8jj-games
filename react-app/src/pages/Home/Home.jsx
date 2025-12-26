@@ -26,15 +26,15 @@ export default function Home() {
   const navigate = useNavigate();
   const prevSearchRef = useRef("");
 
-    /* ================= LOAD GAMES ================= */
+  /* ================= LOAD GAMES ================= */
   useEffect(() => {
     const load = async () => {
       const h5 = await fetchH5Games();
       const all = [...selfHostedGames, ...h5];
 
       const filtered = all.filter(
-      g => !BLOCKED_GAME_IDS.includes(String(g.id).toLowerCase())
-    );
+        g => !BLOCKED_GAME_IDS.includes(String(g.id).toLowerCase())
+      );
 
       setGames(filtered);
 
@@ -46,7 +46,7 @@ export default function Home() {
     load();
   }, []);
 
-    // ----------------Scroll to top when search term changes and has value
+  // ----------------Scroll to top when search term changes and has value
   // useEffect(() => {
   //   const prev = prevSearchRef.current;
   //   const current = search?.trim() || "";
@@ -153,249 +153,253 @@ export default function Home() {
     endlessrunner: games.filter(g => g.tagList?.includes("endless runner")),
     platformers: games.filter(g => g.tagList?.includes("platformer")),
     card: games.filter(g => g.tagList?.includes("card")),
-    makeup: games.filter(g => g.tagList?.includes("princess")|| g.tagList?.includes("makeover")),
+    makeup: games.filter(g => g.tagList?.includes("princess") || g.tagList?.includes("makeover")),
     all: games,
   };
 
 
   // ---------------------- Hero Banner ------------------
   const bannerSlides = [
-  {
-    background: "/images/8JJ-GAMES1.jpg",
-    badge: "INCREDIBLE EXCLUSIVE",
-    titleHighlight: "PLAY FREE NOW!",
-    title: "100% FREE ONLINE GAMES!",
-    cta: "PLAY NOW",
-    link: "/categories/adventure",
-  },
-  {
-    background: "/images/8JJ-GAMES2.jpg",
-    badge: "HALLOWEEN GAMES",
-    titleHighlight: "HALLOWEEN",
-    title: "UNLIMITED FREE HALLOWEEN GAMES",
-    cta: "PLAY NOW",
-    link: "/categories/halloween",
-  },
-  {
-    background: "/images/8JJ-GAMES3.jpg",
-    badge: "CARD GAMES",
-    titleHighlight: "CARDS",
-    title: "FREE CARD GAMES",
-    cta: "PLAY NOW",
-    link: "/categories/card",
-  },
-  {
-    background: "/images/8JJ-GAMES4.jpg",
-    badge: "CHRISTMAS GAMES",
-    titleHighlight: "CHRISTMAS",
-    title: "FREE CHRISTMAS GAMES",
-    cta: "PLAY NOW",
-    link: "/categories/CHRISTMAS",
-  },
-  {
-    background: "/images/8JJ-GAMES5.jpg",
-    badge: "HORROR GAMES",
-    titleHighlight: "HORROR",
-    title: "FREE HORROR GAMES",
-    cta: "PLAY NOW",
-    link: "/categories/zombie",
-  },
-  {
-    background: "/images/8JJ-GAMES6.jpg",
-    badge: "SIMULATOR GAMES",
-    titleHighlight: "SIMULATOR",
-    title: "FREE SIMULATOR GAMES",
-    cta: "PLAY NOW",
-    link: "/categories/simulator",
-  },
-  {
-    background: "/images/8JJ-GAMES7.jpg",
-    badge: "DRIVING GAMES",
-    titleHighlight: "DRIVING",
-    title: "FREE DRIVING GAMES",
-    cta: "PLAY NOW",
-    link: "/categories/driving",
-  }
-];
+    {
+      background: "/images/8JJ-GAMES1.jpg",
+      badge: "INCREDIBLE EXCLUSIVE",
+      titleHighlight: "PLAY FREE NOW!",
+      title: "100% FREE ONLINE GAMES!",
+      cta: "PLAY NOW",
+      link: "/categories/adventure",
+    },
+    {
+      background: "/images/8JJ-GAMES2.jpg",
+      badge: "HALLOWEEN GAMES",
+      titleHighlight: "HALLOWEEN",
+      title: "UNLIMITED FREE HALLOWEEN GAMES",
+      cta: "PLAY NOW",
+      link: "/categories/halloween",
+    },
+    {
+      background: "/images/8JJ-GAMES3.jpg",
+      badge: "CARD GAMES",
+      titleHighlight: "CARDS",
+      title: "FREE CARD GAMES",
+      cta: "PLAY NOW",
+      link: "/categories/card",
+    },
+    {
+      background: "/images/8JJ-GAMES4.jpg",
+      badge: "CHRISTMAS GAMES",
+      titleHighlight: "CHRISTMAS",
+      title: "FREE CHRISTMAS GAMES",
+      cta: "PLAY NOW",
+      link: "/categories/CHRISTMAS",
+    },
+    {
+      background: "/images/8JJ-GAMES5.jpg",
+      badge: "HORROR GAMES",
+      titleHighlight: "HORROR",
+      title: "FREE HORROR GAMES",
+      cta: "PLAY NOW",
+      link: "/categories/zombie",
+    },
+    {
+      background: "/images/8JJ-GAMES6.jpg",
+      badge: "SIMULATOR GAMES",
+      titleHighlight: "SIMULATOR",
+      title: "FREE SIMULATOR GAMES",
+      cta: "PLAY NOW",
+      link: "/categories/simulator",
+    },
+    {
+      background: "/images/8JJ-GAMES7.jpg",
+      badge: "DRIVING GAMES",
+      titleHighlight: "DRIVING",
+      title: "FREE DRIVING GAMES",
+      cta: "PLAY NOW",
+      link: "/categories/driving",
+    }
+  ];
 
-  
+
   return (
-  <div className="home-wrapper">
+    <div className="home-wrapper">
 
-    {/* <HeroBanner slides={bannerSlides} /> */}
+      {/* <HeroBanner slides={bannerSlides} /> */}
 
-    {/* ⏱️ RECENT */}
-    <RecentSection
-      id="recentSection"
-      lang={lang}
-      translate={translate}
-    />
+      {/* ⏱️ RECENT */}
+      <RecentSection
+        id="recentSection"
+        lang={lang}
+        translate={translate}
+      />
 
-    {/* <TrendingSection
+      {/* <TrendingSection
       id="trending"
       title={`⚡ ${translate("trendingGames", lang)}`}
       games={categories.featured.slice(0, 8)}
     /> */}
 
-    <HeroBanner slides={bannerSlides} />
+      <HeroBanner slides={bannerSlides} />
 
-    <GameSection
-      id="featuredSection"
-      title={`⭐ ${translate("featuredGames", lang)}`}
-      games={categories.featured}
-      slider
-      categoryId="featuredSection"
-    />
+      <GameSection
+        id="featuredSection"
+        title={`⭐ ${translate("featuredGames", lang)}`}
+        games={categories.featured}
+        slider
+        categoryId="featuredSection"
+      />
 
-        <HotSection
-      id="hotGames"
-      games={categories.hot}
-      lang={lang}
-      translate={translate}
-    />
+      <HotSection
+        id="hotGames"
+        games={categories.hot}
+        lang={lang}
+        translate={translate}
+      />
 
 
-    <GameSection
-      id="christmas"
-      title={`🎅🏻 ${translate("christmas", lang)} ${translate("games", lang)}`}
-      games={categories.christmas}
-      categoryId="christmas"
-    />
+      <GameSection
+        id="christmas"
+        title={`🎅🏻 ${translate("christmas", lang)} ${translate("games", lang)}`}
+        games={categories.christmas}
+        categoryId="christmas"
+      />
 
-    <GameSection
-      id="makeup"
-      title={`💄 ${translate("girlsGames", lang)}`}
-      games={categories.makeup}
-      categoryId="princess"
-    />
+      <GameSection
+        id="makeup"
+        title={`💄 ${translate("girlsGames", lang)}`}
+        games={categories.makeup}
+        categoryId="princess"
+      />
 
-    <GameSection
-      id="driving"
-      title={`🏎️ ${translate("driving", lang)}`}
-      games={categories.driving}
-      categoryId="driving"
-    />
+      <GameSection
+        id="driving"
+        title={`🏎️ ${translate("driving", lang)}`}
+        games={categories.driving}
+        categoryId="driving"
+      />
 
-    <PopularSection
-      id="popularSection"
-      lang={lang}
-      translate={translate}
-    />
+      <PopularSection
+        id="popularSection"
+        lang={lang}
+        translate={translate}
+      />
 
-    <GameSection
-      id="action"
-      title={`🥊 ${translate("action", lang)}`}
-      games={categories.action}
-      categoryId="action"
-    />
+      <GameSection
+        id="action"
+        title={`🥊 ${translate("action", lang)}`}
+        games={categories.action}
+        categoryId="action"
+      />
 
-    <TopPicksSection
-      id="top-picks"
-      title={`🌶️ ${translate("topPicks", lang)}`}
-      games={categories.recent.slice(0, 27)}
-    />
+      <TopPicksSection
+        id="top-picks"
+        title={`🌶️ ${translate("topPicks", lang)}`}
+        games={categories.recent.slice(0, 27)}
+      />
 
-    <GameSection
-      id="platformer"
-      title={`🧗 ${translate("platformer", lang)}`}
-      games={categories.platformers}
-      categoryId="platformer"
-    />
+      <GameSection
+        id="platformer"
+        title={`🧗 ${translate("platformer", lang)}`}
+        games={categories.platformers}
+        categoryId="platformer"
+      />
 
-    <GameSection
-      id="halloween_games"
-      title={`🎃 ${translate("halloween", lang)} ${translate("games", lang)}`}
-      games={categories.halloween}
-      categoryId="halloween"
-    />
+      <GameSection
+        id="halloween_games"
+        title={`🎃 ${translate("halloween", lang)} ${translate("games", lang)}`}
+        games={categories.halloween}
+        categoryId="halloween"
+      />
 
-    <GameSection
-      id="card_games"
-      title={`🃏 ${translate("card", lang)}`}
-      games={categories.card}
-      categoryId="card"
-    />
+      <GameSection
+        id="card_games"
+        title={`🃏 ${translate("card", lang)}`}
+        games={categories.card}
+        categoryId="card"
+      />
 
-    <GameSection
-      id="football_games"
-      title={`⚽ ${translate("football", lang)} ${translate("games", lang)}`}
-      games={categories.football}
-      categoryId="football"
-    />
+      <GameSection
+        id="football_games"
+        title={`⚽ ${translate("football", lang)} ${translate("games", lang)}`}
+        games={categories.football}
+        categoryId="football"
+      />
 
-    <GameSection
-      id="basketball_games"
-      title={`🏀 ${translate("basketball", lang)} ${translate("games", lang)}`}
-      games={categories.basketball}
-      categoryId="basketball"
-    />
+      <GameSection
+        id="basketball_games"
+        title={`🏀 ${translate("basketball", lang)} ${translate("games", lang)}`}
+        games={categories.basketball}
+        categoryId="basketball"
+      />
 
-    <div className="ScrollSnap" id="categories">
-      <div className="mosaic-page home-wrapper">
-        <h2 className="Cat-title">
-          🗂 {translate("Categories", lang)}
-        </h2>
+      <section className="game-section">
+        <div className="content-anim">
+          <div className="HomepageCat" id="categories">
+            <div className="mosaic-page">
+              <h2 className="section-title">
+                🗂 {translate("Categories", lang)}
+              </h2>
 
-        <CategoryGrid limit={12} />
+              <CategoryGrid limit={12} />
 
-        <div className="container">
-          <button
-            className="btn"
-            onClick={() => navigate("/categories")}
-          >
-            <span className="btnInner">
-              {translate("viewMore", lang)}
-            </span>
-          </button>
+              <div className="container">
+                <button
+                  className="btn"
+                  onClick={() => navigate("/categories")}
+                >
+                  <span className="btnInner">
+                    {translate("viewMore", lang)}
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <GameSection
+        id="simulation_games"
+        title={`🎮 ${translate("simulation", lang)}`}
+        games={categories.simulation}
+        categoryId="simulation"
+      />
+
+      <GameSection
+        id="skill_games"
+        title={`🎯 ${translate("skill", lang)}`}
+        games={categories.skill}
+        categoryId="skill"
+      />
+
+      <GameSection
+        id="horror_games"
+        title={`💀 ${translate("horror", lang)} ${translate("games", lang)}`}
+        games={categories.horror}
+        categoryId="zombie"
+      />
+
+      <GameSection
+        id="endless_runner"
+        title={`🏃 ${translate("endlessRunner", lang)}`}
+        games={categories.endlessrunner}
+        categoryId="endless runner"
+      />
+
+      <GameSection
+        id="puzzles"
+        title={`🧩 ${translate("puzzles", lang)}`}
+        games={categories.puzzles}
+        categoryId="puzzles"
+      />
+
+      <GameSection
+        id="gamesAll"
+        title={`🎮 ${translate("allGames", lang)}`}
+        games={categories.all}
+        categoryId="gamesAll"
+        allGamesPage
+      />
+
+      <FAQ />
     </div>
-
-    <GameSection
-      id="simulation_games"
-      title={`🎮 ${translate("simulation", lang)}`}
-      games={categories.simulation}
-      categoryId="simulation"
-    />
-
-    <GameSection
-      id="skill_games"
-      title={`🎯 ${translate("skill", lang)}`}
-      games={categories.skill}
-      categoryId="skill"
-    />
-
-    <GameSection
-      id="horror_games"
-      title={`💀 ${translate("horror", lang)} ${translate("games", lang)}`}
-      games={categories.horror}
-      categoryId="zombie"
-    />
-
-    <GameSection
-      id="endless_runner"
-      title={`🏃 ${translate("endlessRunner", lang)}`}
-      games={categories.endlessrunner}
-      categoryId="endless runner"
-    />
-
-    <GameSection
-      id="puzzles"
-      title={`🧩 ${translate("puzzles", lang)}`}
-      games={categories.puzzles}
-      categoryId="puzzles"
-    />
-
-    <GameSection
-      id="gamesAll"
-      title={`🎮 ${translate("allGames", lang)}`}
-      games={categories.all}
-      categoryId="gamesAll"
-      allGamesPage
-    />
-
-    <FAQ />
-  </div>
-);
+  );
 
 }

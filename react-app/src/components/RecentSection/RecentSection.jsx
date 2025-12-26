@@ -87,14 +87,7 @@ export default function RecentSection({ id, lang, translate }) {
                     <div className="skeleton-arrow"></div>
                   </div>
                 </li>
-                {[...Array(8)].map((_, i) => (
-                  <li key={i} className="recent-carousel-item">
-                    <div className="skeleton-card">
-                      <div className="skeleton-image"></div>
-                      <div className="skeleton-title"></div>
-                    </div>
-                  </li>
-                ))}
+                
               </ul>
             </div>
           </div>
