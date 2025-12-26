@@ -568,7 +568,7 @@
 
 .home-wrapper #recentSection .game-card:hover {
   transform: translateY(-5px) scale(1.02) !important;
-  box-shadow: 0 23px 32px rgb(35 50 79) !important;
+  /* box-shadow: 0 23px 32px rgb(35 50 79) !important; */
 }
 
 .home-wrapper #recentSection .game-card:hover .game-overlay {
@@ -589,9 +589,7 @@
   box-shadow: none !important;
 }
 
-.game-card:hover {
-  box-shadow: 0 23px 32px rgb(53 57 64 / 58%) !important;
-}
+
 
 #featuredSection .game-card:hover .game-overlay {
   transform: translateY(3px);

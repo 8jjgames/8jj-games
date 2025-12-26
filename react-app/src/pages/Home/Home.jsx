@@ -330,7 +330,7 @@ export default function Home() {
         categoryId="basketball"
       />
 
-      <section className="game-section">
+      <section className="game-section" id="HomeCategories">
         <div className="content-anim">
           <div className="HomepageCat" id="categories">
             <div className="mosaic-page">

@@ -45,10 +45,9 @@ html {
   filter: brightness(2) contrast(1.2) drop-shadow(0 0 10px rgba(255, 215, 100, 0.6));
   transform: scale(1.03);
 }
-
+/* 
 html {
   scroll-snap-type: y proximity;
-  /* Changed from mandatory */
   timeline-scope: --section;
 }
 
@@ -83,9 +82,9 @@ html,
 body {
   overscroll-behavior: none;
   scroll-padding-top: 130px;
-}
+} */
 
-
+/* 
 @media (max-width: 768px) {
 
  .more-title.section-title,.search-overlay {
@@ -107,4 +106,13 @@ body {
     scroll-snap-align: start;
     view-timeline: --section;
   }
-}
+} */
+
+
+
+
+html,
+body {
+  overscroll-behavior: none;
+ 
+} 

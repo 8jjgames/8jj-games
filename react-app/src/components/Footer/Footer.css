@@ -833,6 +833,24 @@
     gap: 20px;
   }
 
+
+  .section-header {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: unset;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+
+  .section-title {
+    margin-bottom: 0px;
+  }
+
+  .section-header {
+    align-items: center;
+  }
+
 }
 
 
@@ -935,6 +953,14 @@
   .brand {
     gap: 30px;
   }
+
+  .section-title {
+    margin-bottom: 0px;
+  }
+
+  .section-header {
+    align-items: center;
+  }
 }
 
 
@@ -963,3 +989,5 @@
     max-width: 100%;
   }
 }
+
+
