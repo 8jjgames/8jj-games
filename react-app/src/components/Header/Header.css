@@ -661,6 +661,14 @@ _:-o-prefocus,
   .sidebar-toggle-btn {
     display: none !important;
   }
+
+  .search.MarginLeftRight{
+        padding-top: 4px;
+  }
+  #HIDEHIDEHIDE{
+    display: none !important;
+  }
+
 }
 
 

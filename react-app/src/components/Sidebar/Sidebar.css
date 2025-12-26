@@ -90,6 +90,7 @@
     top: 65px;
     height: calc(100vh - 70px);
     transition: transform 0.3s ease;
+    padding-top: 18px;
   }
 
   /* Mobile doesn't use the hidden class, only open class */

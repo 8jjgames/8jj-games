@@ -3,33 +3,60 @@ import { useEffect, useState } from "react";
 import GameCard from "../GameCard/GameCard";
 import "./HotSection.css";
 
+// Skeleton Card Component
+function SkeletonCard() {
+  return (
+    <div className="skeleton-card">
+      <div className="skeleton-image"></div>
+      <div className="skeleton-content">
+        <div className="skeleton-title"></div>
+        <div className="skeleton-subtitle"></div>
+      </div>
+    </div>
+  );
+}
+
 export default function HotSection({ games, id, lang, translate }) {
   const [hotGames, setHotGames] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+  const [deviceType, setDeviceType] = useState('desktop');
 
   // Detect screen size
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const checkDevice = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setDeviceType('mobile');
+      } else if (width >= 768 && width <= 1024) {
+        setDeviceType('tablet');
+      } else {
+        setDeviceType('desktop');
+      }
     };
     
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
     
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
   useEffect(() => {
     if (games && Array.isArray(games)) {
       // Determine the limit based on screen size
-      const gameLimit = isMobile ? 6 : 14;
+      const gameLimit = deviceType === 'mobile' ? 6 : deviceType === 'tablet' ? 9 : 14;
       // Keep only limited games based on screen size
       const limitedGames = games.slice(0, gameLimit);
       setHotGames(limitedGames);
     }
     setLoading(false);
-  }, [games, isMobile]);
+  }, [games, deviceType]);
+
+  // Calculate skeleton count based on device type
+  const getSkeletonCount = () => {
+    if (deviceType === 'mobile') return 6;
+    if (deviceType === 'tablet') return 9;
+    return 14;
+  };
 
   if (loading) {
     return (
@@ -38,9 +65,7 @@ export default function HotSection({ games, id, lang, translate }) {
           <div className="hot-header">
             <h2 className="section-title">🔥 {translate("hotGames", lang)}</h2>
           </div>
-          <div className="games-grid">
-            <p>Loading hot games...</p>
-          </div>
+          <div className="HotSkeleton"></div>
         </div>
       </section>
     );
@@ -60,9 +85,7 @@ export default function HotSection({ games, id, lang, translate }) {
                 index={index}
                 isHot
               />
-
             ))}
-            
           </div>
         ) : (
           <div className="empty-message">

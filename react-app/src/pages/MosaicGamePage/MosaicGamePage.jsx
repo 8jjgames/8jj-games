@@ -75,7 +75,7 @@ export default function MosaicGamesPage() {
   };
 
   return (
-    <div className="ScrollSnap">
+    <div className="ScrollSnap AllGAMESCATPAGE">
       <div className="mosaic-page home-wrapper">
         <ScrollToTop />
         {/* Heading */}

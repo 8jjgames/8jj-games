@@ -2,7 +2,7 @@
 .footer-container {
   width: 100%;
   background: linear-gradient(to bottom, #0c1119 0%, #0b0f17 100%);
-  background: linear-gradient(to top, rgba(6, 171, 226, 0.329),  rgba(35, 141, 176, 0.408), rgba(3, 86, 113, 0.182));
+  background: linear-gradient(to top, rgba(6, 171, 226, 0.329), rgba(35, 141, 176, 0.408), rgba(3, 86, 113, 0.182));
   border-top: 1px solid #5c6e8774;
   padding: 60px 20px 30px;
   margin-top: 60px;
@@ -782,24 +782,184 @@
    ======================================== */
 
 
-.lang-ta #recentSection .recent-label span, .lang-ml #recentSection .recent-label span {
+.lang-ta #recentSection .recent-label span,
+.lang-ml #recentSection .recent-label span {
   font-size: 9px !important;
 }
 
 
 @media (max-width: 768px) {
 
-.lang-ta .click-count, .lang-ml .click-count{
-  font-size: 8px !important;
+  .lang-ta .click-count,
+  .lang-ml .click-count {
+    font-size: 8px !important;
+  }
+
+  .lang-ta .play-button,
+  .lang-ml .play-button {
+    font-size: 7px !important;
+  }
+
+  .HomepageCat .mosaic-page {
+    padding-top: 0px;
+    margin: 0px;
+  }
+
+  .sidebar {
+
+    height: calc(100vh - 60px) !important;
+  }
+
+  .category-grid {
+
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin: 0px;
+  }
+
+  .top-picks-slide .top-picks-grid {
+    gap: 10px !important;
+  }
+
+  .play-title {
+    font-size: 16px;
+  }
+
+  .game-info-bar .value {
+    font-size: 13px;
+  }
+
+  .brand {
+    gap: 20px;
+  }
+
 }
 
-.lang-ta .play-button, .lang-ml .play-button{
-   font-size: 7px !important;
-}
 
-}
-
-
-.lang-ta .sidebar .label,  .lang-ml .sidebar .label{
+.lang-ta .sidebar .label,
+.lang-ml .sidebar .label {
   font-size: 10px;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .header-container {
+    padding: 0px 12px;
+  }
+
+  .header .header-container {
+    padding: 0px 20px;
+  }
+
+  .game-card {
+    max-height: 140px !important;
+    max-width: inherit;
+    margin: auto;
+    width: 100%;
+  }
+
+  .home-wrapper .games-grid {
+    row-gap: 20px;
+    column-gap: 20px;
+    padding-top: 8px;
+  }
+
+  .top-picks-section .top-picks-featured .game-card {
+
+    min-height: 310px !important;
+  }
+
+  .top-picks-grid .top-picks-grid-item {
+
+    max-width: none !important;
+
+  }
+
+  .game-frame-container {
+    height: auto !important;
+  }
+
+  .Cat-title {
+    margin-top: 0px;
+  }
+
+  .mosaic-page.home-wrapper {
+
+    min-height: auto !important;
+  }
+
+  .HomepageCat .mosaic-page {
+    padding-top: 0px;
+  }
+
+  .HomepageCat .category-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+  }
+
+  .sidebar {
+    padding-top: 20px;
+    height: calc(100vh - 60px);
+  }
+
+  .top-picks-slide .top-picks-grid {
+    gap: 20px !important;
+  }
+
+  .home-wrapper .game-image {
+    object-position: center 26%;
+  }
+
+  .AllGAMESCATPAGE {
+    padding: 0px 24px;
+    padding-top: 30px;
+  }
+
+  .AllGAMESCATPAGE .Cat-title {
+    margin-bottom: 20px;
+  }
+
+  .AllGAMESCATPAGE .category-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .play-title {
+    font-size: 18px !important;
+  }
+
+  .game-info-bar .value {
+    font-size: 14px;
+  }
+
+  .brand {
+    gap: 30px;
+  }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+  #HIDEHIDEHIDE {
+    Display: none !important
+  }
+
+  .sidebar {
+    top: 70px;
+  }
+
+  .top-picks-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (pointer: coarse) {
+  .top-picks-featured {
+    max-width: none !important;
+  }
+
+  .top-picks-featured .game-card {
+    max-height: 100% !important;
+    max-width: 100%;
+  }
 }
