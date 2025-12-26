@@ -10,9 +10,25 @@
   }
 }
 
+/* Hot Section Skeleton Loader */
+.HotSkeleton {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .HotSkeleton {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 20px;
+    max-height: 123px;
+  }
+}
+
 /* Skeleton Card Styles */
 .skeleton-card {
-  background: #1a1a1a;
+  max-height: 123px;
+  background: #1d2a47;
   border-radius: 12px;
   overflow: hidden;
   animation: pulse 1.5s ease-in-out infinite;
@@ -24,7 +40,7 @@
   background: linear-gradient(
     90deg,
     #2a2a2a 25%,
-    #333 50%,
+    #1d2a47 50%,
     #2a2a2a 75%
   );
   background-size: 200% 100%;
@@ -43,7 +59,7 @@
     #333 50%,
     #2a2a2a 75%
   );
-  background-size: 200% 100%;
+  
   border-radius: 4px;
   margin-bottom: 8px;
   animation: shimmer 1.5s ease-in-out infinite;
@@ -58,7 +74,7 @@
     #333 50%,
     #2a2a2a 75%
   );
-  background-size: 200% 100%;
+ 
   border-radius: 4px;
   animation: shimmer 1.5s ease-in-out infinite;
 }

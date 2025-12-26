@@ -65,7 +65,11 @@ export default function HotSection({ games, id, lang, translate }) {
           <div className="hot-header">
             <h2 className="section-title">🔥 {translate("hotGames", lang)}</h2>
           </div>
-          <div className="HotSkeleton"></div>
+          <div className="HotSkeleton">
+            {Array.from({ length: getSkeletonCount() }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))}
+          </div>
         </div>
       </section>
     );
