@@ -4,4 +4,6 @@ export const BLOCKED_GAME_IDS = [
   "bra-unhooking",
   "christmas-day-beach-kiss",
   "christmas-princess-kissing",
+  "poop-it",
+  "poop-clicker",
 ];
