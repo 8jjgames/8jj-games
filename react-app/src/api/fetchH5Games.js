@@ -6,6 +6,7 @@ const BLOCKED_GAME_KEYWORDS = [
   "adult",
   "sex",
   "kiss",
+  "poop",
 ];
 
 

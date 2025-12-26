@@ -91,6 +91,8 @@ export default function HeroBanner({ slides, autoPlay = true, interval = 5000 })
       )}
 
       <div className="hero-content">
+
+        <img src="/8JJ_games.png" alt="8jj_logo" className="hero-content-logo" />
         {slide.badge && <span className="hero-badge">{slide.badge}</span>}
 
         <h1 className="hero-title">

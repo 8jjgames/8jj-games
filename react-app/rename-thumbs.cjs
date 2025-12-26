@@ -9,8 +9,8 @@ const IMAGE_EXTENSION = ".jpg"; // change if .jpg or .png
 // Load JSON
 const games = JSON.parse(fs.readFileSync(JSON_FILE, "utf8"));
 
-// Only take first 125 games
-const totalImages = 125;
+// Only take first x no of games
+const totalImages = 57;
 
 for (let i = 0; i < totalImages; i++) {
   const oldName = `${i + 1}${IMAGE_EXTENSION}`;
