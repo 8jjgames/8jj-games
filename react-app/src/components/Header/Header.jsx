@@ -173,6 +173,8 @@ export default function Header() {
             </button>
           </div>
 
+        
+        </div>
           {/* Sidebar toggle button */}
         <div className="header-categories" id="HIDEHIDEHIDE">
           <button
@@ -196,7 +198,6 @@ export default function Header() {
               />
             </svg>
           </button>
-        </div>
         </div>
       </header>
 
